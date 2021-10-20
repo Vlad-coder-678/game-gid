@@ -6,7 +6,7 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
   
-  html, body{
+  html, body {
     width: 100%;
     height: 100%;
     margin: 0;
@@ -24,6 +24,17 @@ const GlobalStyle = createGlobalStyle`
     color: #fff;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
+  }
+
+  button,
+  a {
+    background-color: transparent;
+    outline: none;
+    text-decoration: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
   }
 `;
 
