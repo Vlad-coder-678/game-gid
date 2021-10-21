@@ -3,18 +3,22 @@ import styled from 'styled-components';
 
 const Button = styled.button`
   display: flex;
+  ${({ size }) => size === 'small' && 'width: auto;'}
+  ${({ size }) => size === 'medium' && 'width: 30px;'}
   height: ${({ size }) => (size === 'small' ? '20' : '30')}px;
   justify-content: center;
   align-items: center;
   overflow: hidden;
   background-color: #000;
-  filter: invert(15%) sepia(0%) saturate(192%) hue-rotate(183deg) brightness(100%) contrast(85%);
+  ${({ size }) => size !== 'big' && 'filter: invert(15%) saturate(192%) hue-rotate(183deg) contrast(85%);'}
   border-radius: 3px;
   margin: 2px;
   padding: 3px;
 
   img {
-    height: 10px;
+    ${({ size }) => size === 'small' && 'height: 10px;'}
+    ${({ size }) => size === 'medium' && 'height: 15px;'}
+    ${({ size }) => size === 'big' && 'height: 30px;'}
   }
 
   span {
@@ -23,7 +27,7 @@ const Button = styled.button`
   }
 
   &:hover {
-    filter: invert(100%) sepia(0%) saturate(7500%) hue-rotate(322deg) brightness(118%) contrast(102%);
+    ${({ size }) => size !== 'big' && 'filter: invert(100%) saturate(7500%) hue-rotate(322deg) brightness(118%);'}
   }
 `;
 

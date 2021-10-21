@@ -5,7 +5,9 @@ import Title from './Title';
 import Controls from './Controls';
 import Content from './Content';
 
-const Wrap = styled.div``;
+const Wrap = styled.div`
+  width: calc(100% - 200px);
+`;
 
 const Main = () => (
   <Wrap>
