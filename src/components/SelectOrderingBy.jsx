@@ -1,20 +1,20 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { sortBy } from '../redux/apiSlice';
-import { SORTS } from '../constants';
+import { ORDERING } from '../constants';
 
-const SelectSortBy = () => {
-  const sortType = useSelector((state) => state.api.sortType);
+const SelectOrderingBy = () => {
+  const ordering = useSelector((state) => state.api.ordering);
   const dispatch = useDispatch();
 
   return (
     <select
-      value={sortType}
+      value={ordering}
       onChange={(e) => {
         dispatch(sortBy(e.target.value));
       }}
     >
-      {SORTS.map((i) => (
+      {ORDERING.map((i) => (
         <option key={i} value={i}>
           {i}
         </option>
@@ -23,4 +23,4 @@ const SelectSortBy = () => {
   );
 };
 
-export default SelectSortBy;
+export default SelectOrderingBy;

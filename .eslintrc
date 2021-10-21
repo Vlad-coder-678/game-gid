@@ -4,7 +4,7 @@
     "es2021": true,
     "node": true
   },
-  "extends": ["eslint:recommended", "prettier", "airbnb"],
+  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier", "airbnb"],
   "parserOptions": {
     "ecmaFeatures": {
       "jsx": true
@@ -46,11 +46,13 @@
     "no-console": "warn",
     "no-param-reassign": ["error", { "props": false }],
     "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/exhaustive-deps": "off",
     "react/button-has-type": "off",
     "react/jsx-curly-newline": [0, { "multiline": "consistent", "singleline": "consistent" }],
     "react/jsx-filename-extension": [0, { "extensions": [".js", ".jsx"] }],
     "react/jsx-one-expression-per-line": "off",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
     "react/prop-types": "off",
     "semi": ["error", "always"],
     "no-continue": "error",

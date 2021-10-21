@@ -1,28 +1,14 @@
 import React from 'react';
-// import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-// import SectionSearchCards from './homeSections/SectionSearchCards';
-// import SectionForms from './homeSections/SectionForms';
-import SectionApi from '../components/SectionApi';
+import Search from '../components/Search';
 
 const Wrap = styled.nav`
   width: 100%;
   height: 100px;
+  padding: 24px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  a {
-    text-decoration: none;
-    color: #000;
-    text-transform: uppercase;
-    margin: 0 10px;
-    cursor: pointer;
-  }
-
-  a:hover {
-    color: #777;
-  }
 
   .activeLink {
     color: white;
@@ -37,6 +23,10 @@ const Logo = styled.button`
   letter-spacing: 5px;
   font-weight: 900;
   text-transform: uppercase;
+
+  &:hover {
+    color: #777;
+  }
 `;
 
 const SearchWrap = styled.div``;
@@ -49,10 +39,7 @@ const Header = () => (
       <Logo>RAWG</Logo>
     </LogoWrap>
     <SearchWrap>
-      Search
-      {/* <SectionSearchCards /> */}
-      {/* <SectionForms /> */}
-      <SectionApi />
+      <Search />
     </SearchWrap>
     <LogInWrap>Log In</LogInWrap>
   </Wrap>

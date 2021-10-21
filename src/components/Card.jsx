@@ -1,60 +1,49 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Wrap = styled.a`
-  max-width: 590px;
-  display: flex;
-  flex-direction: row;
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
-  padding-bottom: 5px;
-  border-bottom: 1px solid grey;
-  @media screen and (max-width: 768px) {
-    max-width: 290px;
-    flex-direction: column;
-  }
-`;
+import CardTop from './CardTop';
+import CardPlatforms from './CardPlatforms';
+import CardTitle from './CardTitle';
+import CardButtons from './CardButtons';
+import CardDescription from './CardDescription';
+import CardDiscover from './CardDiscover';
 
-const LeftContent = styled.div`
-  position: relative;
-  width: 30%;
-  overflow: hidden;
-  img {
-    position: absolute;
-    left: 0;
-    top: 0;
-    max-width: 90%;
-    height: 100%;
-    object-fit: contain;
-  }
-  @media screen and (max-width: 768px) {
-    max-width: 290px;
-    height: 300px;
-    width: 90%;
-  }
-`;
-
-const RightContent = styled.div`
-  width: 60%;
+const Wrap = styled.div`
+  width: 300px;
   display: flex;
   flex-direction: column;
-  @media screen and (max-width: 768px) {
-    width: 90%;
+  margin: 10px;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: ease 0.3s;
+  background-color: #202020;
+  box-shadow: 0 10px 20px 0 rgb(0 0 0 / 7%);
+
+  &:hover {
+    transform: scale(1.1);
+    transition: ease 0.3s;
   }
 `;
 
-// eslint-disable-next-line object-curly-newline
-const Card = ({ img, title, desc, path }) => (
-  <Wrap href={path}>
-    <LeftContent>
-      <img src={img} alt={title} />
-    </LeftContent>
-    <RightContent>
-      <h2>{title}</h2>
-      <p>{desc}</p>
-    </RightContent>
-  </Wrap>
-);
+const CardBottom = styled.div`
+  padding: 10px;
+`;
+
+const Card = ({ card }) => {
+  // eslint-disable-next-line no-console
+  console.log(card);
+  return (
+    <Wrap>
+      <CardTop bg={card.background_image} name={card.name} />
+      <CardBottom>
+        <CardPlatforms card={card} />
+        <CardTitle title={card.name} />
+        <CardButtons added={card.added} />
+        <CardDescription released={card.released} genres={card.genres} />
+        <CardDiscover />
+      </CardBottom>
+    </Wrap>
+  );
+};
 
 export default Card;

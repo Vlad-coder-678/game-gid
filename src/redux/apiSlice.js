@@ -1,27 +1,30 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { API_KEY } from '../constants';
+import { API_KEY, ORDERING } from '../constants';
+import fetchResults from '../utils/axios';
+import { formattedResponse } from '../utils/formattedResponse';
 
 export const sectionApiSlice = createSlice({
   name: 'sectionApi',
   initialState: {
+    title: '',
+    platforms: '',
     apiKey: API_KEY,
-    sortType: 'relevancy',
-    pageSize: 5,
-    totalCards: 0,
-    pages: [],
+    ordering: ORDERING[3],
+    pageSize: 20,
     currentPage: 1,
     cards: [],
     isLoading: false,
-    searchQuery: '',
+    searchValue: '',
+    reliseDate: '',
   },
   reducers: {
-    sortBy: (state, action) => {
+    setPlatforms: (state, action) => {
       // eslint-disable-next-line no-param-reassign
-      state.sortType = action.payload;
+      state.ordering = action.payload;
     },
-    changePageSize: (state, action) => {
+    orderingBy: (state, action) => {
       // eslint-disable-next-line no-param-reassign
-      state.pageSize = action.payload;
+      state.ordering = action.payload;
     },
     setTotalCards: (state, action) => {
       // eslint-disable-next-line no-param-reassign
@@ -37,21 +40,26 @@ export const sectionApiSlice = createSlice({
     },
     setCards: (state, action) => {
       // eslint-disable-next-line no-param-reassign
-      state.arts = action.payload;
+      state.cards = action.payload;
     },
     setIsLoading: (state, action) => {
       // eslint-disable-next-line no-param-reassign
       state.isLoading = action.payload;
     },
-    setSearchQuery: (state, action) => {
+    setSearchValue: (state, action) => {
       // eslint-disable-next-line no-param-reassign
-      state.searchQuery = action.payload;
+      state.searchValue = action.payload;
+    },
+    setReleaseDate: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.release_date = action.payload;
     },
   },
 });
 
 // eslint-disable-next-line object-curly-newline
 export const {
+  setPlatforms,
   sortBy,
   changePageSize,
   setCurrentPage,
@@ -59,7 +67,48 @@ export const {
   setTotalCards,
   setCards,
   setIsLoading,
-  setSearchQuery,
+  setSearchValue,
+  setReleaseDate,
 } = sectionApiSlice.actions;
+
+export const fetchResultsInit = () => async (dispatch) => {
+  dispatch(setIsLoading(true));
+  try {
+    const response = await fetchResults();
+    const { results } = response.data;
+    // eslint-disable-next-line no-console
+    console.log(results);
+    // if (results.length === 0) dispatch(setCards(`Sorry, your search "${searchValue}" did not return any results.`));
+    // else dispatch(setCards(formattedResponse(results)));
+    if (results.length > 0) dispatch(setCards(results));
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-alert
+    // alert(error);
+  } finally {
+    dispatch(setIsLoading(false));
+  }
+};
+
+export const fetchResultsAfterSubmit = () => async (dispatch) => {
+  dispatch(setIsLoading(true));
+  try {
+    const response = await fetchResults();
+    // eslint-disable-next-line no-console
+    console.log(response);
+    const { results } = response.data;
+    // if (results.length === 0) dispatch(setCards(`Sorry, your search "${searchValue}" did not return any results.`));
+    // else dispatch(setCards(formattedResponse(results)));
+    dispatch(setCards(formattedResponse(results)));
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+    // eslint-disable-next-line no-alert
+    alert(error);
+  } finally {
+    dispatch(setIsLoading(false));
+  }
+};
 
 export default sectionApiSlice.reducer;

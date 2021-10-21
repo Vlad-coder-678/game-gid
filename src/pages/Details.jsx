@@ -27,14 +27,9 @@ const Details = () => {
     if (data) {
       data = JSON.parse(data);
       const pathnameFromCard = `/details/${data.data.index}`;
-      if (pathnameFromCard !== pathname) {
-        setIsRedirectToHome(true);
-      } else {
-        setCardData(data.data);
-      }
-    } else {
-      setIsRedirectToHome(true);
-    }
+      if (pathnameFromCard !== pathname) setIsRedirectToHome(true);
+      else setCardData(data.data);
+    } else setIsRedirectToHome(true);
   }, []);
 
   return (

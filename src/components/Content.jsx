@@ -1,28 +1,25 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 import styled from 'styled-components';
 
 import Card from './Card';
 
 const Wrap = styled.div`
-  ul {
-    li {
-      list-style: none;
-      margin: 5px;
-    }
-  }
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
 `;
 
-const Content = ({ cards }) => (
-  <Wrap>
-    <ul>
-      {cards
-        && cards.map((item) => (
-          <li key={item.title}>
-            <Card img={item.urlToImage} title={item.title} desc={item.description} path={item.url} />
-          </li>
-        ))}
-    </ul>
-  </Wrap>
-);
+const Content = () => {
+  const cards = useSelector((state) => state.api.cards);
+
+  return (
+    <Wrap>
+      {cards.map((card) => (
+        <Card key={card.id} card={card} />
+      ))}
+    </Wrap>
+  );
+};
 
 export default Content;

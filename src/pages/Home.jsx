@@ -1,12 +1,12 @@
 import React from 'react';
 
 import NavBar from '../components/NavBar';
-import Content from '../components/Content';
+import Main from '../components/Main';
 
 const Home = () => (
   <div>
     <NavBar />
-    <Content />
+    <Main />
   </div>
 );
 

@@ -82,17 +82,17 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
       },
-      //   {
-      //     test: /\.(?:|gif|png|jpe?g|svg)$/i,
-      //     use: [
-      //       {
-      //         loader: 'file-loader',
-      //         options: {
-      //           name: `./assets/${filename('[ext]')}`,
-      //         },
-      //       },
-      //     ],
-      //   },
+      {
+        test: /\.(?:|gif|png|jpe?g|svg)$/i,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: `./assets/${filename('[ext]')}`,
+            },
+          },
+        ],
+      },
       //   {
       //     test: /\.(?:|woff2)$/i,
       //     use: [
