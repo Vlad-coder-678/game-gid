@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { sortBy } from '../redux/apiSlice';
+import { orderingBy } from '../redux/apiSlice';
 import { ORDERING } from '../constants';
 
 const SelectOrderingBy = () => {
@@ -11,14 +11,16 @@ const SelectOrderingBy = () => {
     <select
       value={ordering}
       onChange={(e) => {
-        dispatch(sortBy(e.target.value));
+        dispatch(orderingBy(e.target.value));
       }}
     >
-      {ORDERING.map((i) => (
-        <option key={i} value={i}>
-          {i}
-        </option>
-      ))}
+      {Object.values(ORDERING).map(
+        (item, index) => index < 5 && (
+          <option key={item.value} value={item.value}>
+            {item.title}
+          </option>
+        ),
+      )}
     </select>
   );
 };

@@ -14,9 +14,9 @@ const SelectPlatforms = () => {
         dispatch(setPlatforms(e.target.value));
       }}
     >
-      {PLATFORMS.map((i) => (
-        <option key={i} value={i}>
-          {i}
+      {Object.values(PLATFORMS).map((item) => (
+        <option key={item.title} value={item.value}>
+          {item.title}
         </option>
       ))}
     </select>

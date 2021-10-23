@@ -14,9 +14,9 @@ const SelectReleaseDate = () => {
         dispatch(setReleaseDate(e.target.value));
       }}
     >
-      {RELEASE_DATE.map((n) => (
-        <option key={n} value={n}>
-          {n}
+      {Object.values(RELEASE_DATE).map((item) => (
+        <option key={item.title} value={item.value}>
+          {item.title}
         </option>
       ))}
     </select>

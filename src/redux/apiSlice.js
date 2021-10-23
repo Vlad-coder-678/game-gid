@@ -1,26 +1,34 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { API_KEY, ORDERING } from '../constants';
-import fetchResults from '../utils/axios';
-import { formattedResponse } from '../utils/formattedResponse';
+import { API_KEY, PLATFORMS, GENRES, ORDERING, RELEASE_DATE } from '../constants';
+import { fetchResults } from '../utils/axios';
 
 export const sectionApiSlice = createSlice({
   name: 'sectionApi',
   initialState: {
-    title: '',
-    platforms: '',
     apiKey: API_KEY,
-    ordering: ORDERING[3],
+    title: 'All Games',
+    platforms: PLATFORMS.ALL.value,
+    genres: GENRES.ALL.value,
+    ordering: ORDERING.ADDED.value,
     pageSize: 20,
     currentPage: 1,
     cards: [],
     isLoading: false,
     searchValue: '',
-    reliseDate: '',
+    reliseDate: RELEASE_DATE.ALL_TIME.value,
   },
   reducers: {
+    setTitle: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.title = action.payload;
+    },
     setPlatforms: (state, action) => {
       // eslint-disable-next-line no-param-reassign
-      state.ordering = action.payload;
+      state.platforms = action.payload;
+    },
+    setGenres: (state, action) => {
+      // eslint-disable-next-line no-param-reassign
+      state.genres = action.payload;
     },
     orderingBy: (state, action) => {
       // eslint-disable-next-line no-param-reassign
@@ -52,60 +60,41 @@ export const sectionApiSlice = createSlice({
     },
     setReleaseDate: (state, action) => {
       // eslint-disable-next-line no-param-reassign
-      state.release_date = action.payload;
+      state.reliseDate = action.payload;
     },
   },
 });
 
 // eslint-disable-next-line object-curly-newline
 export const {
+  setTitle,
   setPlatforms,
-  sortBy,
-  changePageSize,
-  setCurrentPage,
-  setPages,
+  setGenres,
+  orderingBy,
   setTotalCards,
+  setPages,
+  setCurrentPage,
   setCards,
   setIsLoading,
   setSearchValue,
   setReleaseDate,
 } = sectionApiSlice.actions;
 
-export const fetchResultsInit = () => async (dispatch) => {
+export const fetchGamesResults = (page, pageSize, search, platforms, genres, dates, ordering) => async (dispatch) => {
+  // eslint-disable-next-line no-console
+  // console.log(response);
   dispatch(setIsLoading(true));
   try {
-    const response = await fetchResults();
-    const { results } = response.data;
-    // eslint-disable-next-line no-console
-    console.log(results);
-    // if (results.length === 0) dispatch(setCards(`Sorry, your search "${searchValue}" did not return any results.`));
-    // else dispatch(setCards(formattedResponse(results)));
-    if (results.length > 0) dispatch(setCards(results));
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.error(error);
-    // eslint-disable-next-line no-alert
-    // alert(error);
-  } finally {
-    dispatch(setIsLoading(false));
-  }
-};
-
-export const fetchResultsAfterSubmit = () => async (dispatch) => {
-  dispatch(setIsLoading(true));
-  try {
-    const response = await fetchResults();
+    const response = await fetchResults(page, pageSize, search, platforms, genres, dates, ordering);
     // eslint-disable-next-line no-console
     console.log(response);
-    const { results } = response.data;
-    // if (results.length === 0) dispatch(setCards(`Sorry, your search "${searchValue}" did not return any results.`));
-    // else dispatch(setCards(formattedResponse(results)));
-    dispatch(setCards(formattedResponse(results)));
+    if (response) {
+      const { results } = response.data;
+      dispatch(setCards(results));
+    }
   } catch (error) {
     // eslint-disable-next-line no-console
     console.error(error);
-    // eslint-disable-next-line no-alert
-    alert(error);
   } finally {
     dispatch(setIsLoading(false));
   }

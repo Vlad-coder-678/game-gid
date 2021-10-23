@@ -45,8 +45,8 @@ const CardDescription = ({ released, genres }) => (
         <DescTitle>Genres:</DescTitle>
         <DescPosition>
           {genres.map((genre, index) => (
-            <span>
-              <button key={genre.name}>{genre.name}</button>
+            <span key={genre.name}>
+              <button>{genre.name}</button>
               {index < genres.length - 1 && ', '}
             </span>
           ))}
