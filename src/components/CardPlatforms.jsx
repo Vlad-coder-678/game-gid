@@ -21,7 +21,7 @@ const WrapPlatformLogo = styled.div`
 
 const CardPlatforms = ({ platforms }) => (
   <Platforms>
-    {platforms.map((item) => (
+    {platforms && platforms.map((item) => (
       <WrapPlatformLogo key={item.platform.slug}>
         <PlatformLogo slug={item.platform.slug} key={item.platform.slug} />
       </WrapPlatformLogo>

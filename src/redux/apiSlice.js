@@ -81,8 +81,6 @@ export const {
 } = sectionApiSlice.actions;
 
 export const fetchGamesResults = (page, pageSize, search, platforms, genres, dates, ordering) => async (dispatch) => {
-  // eslint-disable-next-line no-console
-  // console.log(response);
   dispatch(setIsLoading(true));
   try {
     const response = await fetchResults(page, pageSize, search, platforms, genres, dates, ordering);

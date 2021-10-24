@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Redirect } from 'react-router-dom';
+import React from 'react';
+import { useHistory, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 
 import Search from '../components/Search';
@@ -30,18 +30,20 @@ const Logo = styled.button`
 `;
 
 const Header = () => {
-  const [isRedirectToHome, setIsRedirectToHome] = useState(false);
+  const history = useHistory();
+  const { pathname } = useLocation();
+
+  const handleClick = () => pathname !== '/' && history.push('/');
 
   return (
     <Wrap>
       <div>
-        <Logo onClick={() => setIsRedirectToHome(true)}>RAWG</Logo>
+        <Logo onClick={handleClick}>RAWG</Logo>
       </div>
       <div>
         <Search />
       </div>
       <button type="button">Log In</button>
-      {isRedirectToHome && <Redirect to="/" />}
     </Wrap>
   );
 };
