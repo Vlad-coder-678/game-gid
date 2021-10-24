@@ -31,8 +31,8 @@ const Button = styled.button`
   }
 `;
 
-const ButtonSquare = ({ size, source, added }) => (
-  <Button size={size}>
+const ButtonSquare = ({ size, source, added, handleClick }) => (
+  <Button size={size} onClick={handleClick}>
     <img src={source} alt="imagedesc" />
     {added && <span>{added}</span>}
   </Button>

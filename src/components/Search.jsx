@@ -23,7 +23,6 @@ const VisualHidden = styled.span`
 const Search = () => {
   const isLoading = useSelector((state) => state.api.isLoading);
   const searchValue = useSelector((state) => state.api.searchValue);
-
   const dispatch = useDispatch();
 
   const handleChange = (e) => {

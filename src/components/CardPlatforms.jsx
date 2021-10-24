@@ -19,9 +19,9 @@ const WrapPlatformLogo = styled.div`
   }
 `;
 
-const CardPlatforms = ({ card }) => (
+const CardPlatforms = ({ platforms }) => (
   <Platforms>
-    {card.parent_platforms.map((item) => (
+    {platforms.map((item) => (
       <WrapPlatformLogo key={item.platform.slug}>
         <PlatformLogo slug={item.platform.slug} key={item.platform.slug} />
       </WrapPlatformLogo>

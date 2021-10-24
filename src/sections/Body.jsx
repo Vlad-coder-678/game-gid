@@ -43,7 +43,7 @@ const Body = () => {
           <Route path="/" exact>
             <Home />
           </Route>
-          <Route path="/details/:cardIndex" render={() => <Details />} />
+          <Route path="/game/:slug" render={() => <Details />} />
           <Route path="*">
             <NotFound />
           </Route>

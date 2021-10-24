@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import styled from 'styled-components';
+
 import Search from '../components/Search';
 
 const Wrap = styled.nav`
@@ -15,8 +17,6 @@ const Wrap = styled.nav`
   }
 `;
 
-const LogoWrap = styled.div``;
-
 const Logo = styled.button`
   font-size: 18px;
   line-height: 18px;
@@ -29,20 +29,21 @@ const Logo = styled.button`
   }
 `;
 
-const SearchWrap = styled.div``;
+const Header = () => {
+  const [isRedirectToHome, setIsRedirectToHome] = useState(false);
 
-const LogInWrap = styled.div``;
-
-const Header = () => (
-  <Wrap>
-    <LogoWrap>
-      <Logo>RAWG</Logo>
-    </LogoWrap>
-    <SearchWrap>
-      <Search />
-    </SearchWrap>
-    <LogInWrap>Log In</LogInWrap>
-  </Wrap>
-);
+  return (
+    <Wrap>
+      <div>
+        <Logo onClick={() => setIsRedirectToHome(true)}>RAWG</Logo>
+      </div>
+      <div>
+        <Search />
+      </div>
+      <button type="button">Log In</button>
+      {isRedirectToHome && <Redirect to="/" />}
+    </Wrap>
+  );
+};
 
 export default Header;

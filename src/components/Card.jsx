@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 import CardTop from './CardTop';
 import CardMetacritic from './CardMetacritic';
@@ -31,18 +32,26 @@ const CardBottom = styled.div`
   padding: 10px;
 `;
 
-const Card = ({ card }) => (
-  <Wrap>
-    <CardTop bg={card.background_image} name={card.name} />
-    <CardBottom>
-      {card.metacritic && <CardMetacritic metacritic={card.metacritic} />}
-      <CardPlatforms card={card} />
-      <CardTitle title={card.name} />
-      <CardButtons added={card.added} />
-      <CardDescription released={card.released} genres={card.genres} />
-      <CardDiscover />
-    </CardBottom>
-  </Wrap>
-);
+const Card = ({ card }) => {
+  const handleClick = () => {
+    window.localStorage.setItem('card', JSON.stringify(card));
+  };
+
+  return (
+    <Wrap>
+      <Link to={`/game/${card.slug}`} onClick={handleClick}>
+        <CardTop bg={card.background_image} name={card.name} />
+        <CardBottom>
+          {card.metacritic && <CardMetacritic metacritic={card.metacritic} />}
+          <CardPlatforms platforms={card.parent_platforms} />
+          <CardTitle title={card.name} />
+          <CardButtons added={card.added} />
+          <CardDescription released={card.released} genres={card.genres} />
+          <CardDiscover />
+        </CardBottom>
+      </Link>
+    </Wrap>
+  );
+};
 
 export default Card;

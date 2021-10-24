@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const Wrap = styled.div``;
+const Wrap = styled.div`
+  width: 100%;
+`;
 
 const WrapDesc = styled.div`
   margin-top: 5px;
