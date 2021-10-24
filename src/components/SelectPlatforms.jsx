@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import { setPlatforms } from '../redux/apiSlice';
+import { setTitle, setPlatforms } from '../redux/apiSlice';
 import { PLATFORMS } from '../constants';
 
 const Wrap = styled.select`
@@ -27,7 +27,11 @@ const SelectPlatforms = () => {
   const platforms = useSelector((state) => state.api.platforms);
   const dispatch = useDispatch();
 
-  const handleClick = (event) => dispatch(setPlatforms(event.target.value));
+  const handleClick = (event) => {
+    const { title } = Object.values(PLATFORMS).filter((item) => item.value === event.target.value)[0];
+    dispatch(setTitle(title));
+    dispatch(setPlatforms(event.target.value));
+  };
 
   return (
     <Wrap value={platforms} onChange={(e) => handleClick(e)}>

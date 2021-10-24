@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { API_KEY, PLATFORMS, GENRES, ORDERING, RELEASE_DATE } from '../constants';
-import { fetchResults } from '../utils/axios';
+import fetchResults from '../utils/axios';
 
 export const sectionApiSlice = createSlice({
   name: 'sectionApi',
@@ -15,57 +15,56 @@ export const sectionApiSlice = createSlice({
     cards: [],
     isLoading: false,
     searchValue: '',
-    reliseDate: RELEASE_DATE.ALL_TIME.value,
+    releaseDate: RELEASE_DATE.ALL_TIME.value,
   },
   reducers: {
     setTitle: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
       state.title = action.payload;
     },
     setPlatforms: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
       state.platforms = action.payload;
     },
     setGenres: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
       state.genres = action.payload;
     },
     orderingBy: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
       state.ordering = action.payload;
     },
     setTotalCards: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
       state.totalCards = action.payload;
     },
     setPages: (state) => {
-      //   eslint-disable-next-line no-param-reassign
       state.pages = new Array(Math.ceil(state.totalCards / state.pageSize)).fill(1).map((a, i) => i + 1);
     },
     setCurrentPage: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
       state.currentPage = action.payload;
     },
     setCards: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
       state.cards = action.payload;
     },
     setIsLoading: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
       state.isLoading = action.payload;
     },
     setSearchValue: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
       state.searchValue = action.payload;
     },
     setReleaseDate: (state, action) => {
-      // eslint-disable-next-line no-param-reassign
-      state.reliseDate = action.payload;
+      state.releaseDate = action.payload;
+    },
+    setDefaultData: (state) => {
+      state.title = 'All Games';
+      state.platforms = PLATFORMS.ALL.value;
+      state.genres = GENRES.ALL.value;
+      state.ordering = ORDERING.POPULARITY_TOP_TO_BOTTOM.value;
+      state.pageSize = 20;
+      state.currentPage = 1;
+      state.isLoading = false;
+      state.searchValue = '';
+      state.releaseDate = RELEASE_DATE.ALL_TIME.value;
     },
   },
 });
 
-// eslint-disable-next-line object-curly-newline
 export const {
   setTitle,
   setPlatforms,
@@ -78,14 +77,13 @@ export const {
   setIsLoading,
   setSearchValue,
   setReleaseDate,
+  setDefaultData,
 } = sectionApiSlice.actions;
 
 export const fetchGamesResults = (page, pageSize, search, platforms, genres, dates, ordering) => async (dispatch) => {
   dispatch(setIsLoading(true));
   try {
     const response = await fetchResults(page, pageSize, search, platforms, genres, dates, ordering);
-    // eslint-disable-next-line no-console
-    console.log(response);
     if (response) {
       const { results } = response.data;
       dispatch(setCards(results));

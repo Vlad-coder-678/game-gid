@@ -31,20 +31,22 @@ const WrapItem = styled.div`
   }
 `;
 
-const NavBarTop = () => {
+const NavBarRelease = () => {
   const dispatch = useDispatch();
 
   const handleClick = (index) => {
     dispatch(setDefaultData());
-    const currData = navBarData.top_data[index];
+    const currData = navBarData.releases_data[index];
+    // eslint-disable-next-line no-console
+    console.log(currData.dates);
     dispatch(setTitle(currData.title));
     dispatch(setReleaseDate(currData.dates));
   };
 
   return (
     <Wrap>
-      <NavBarTitle text="Top" isDisable />
-      {navBarData.top_data.map((item, index) => (
+      <NavBarTitle text="New Releases" isDisable />
+      {navBarData.releases_data.map((item, index) => (
         <WrapItem key={item.title} onClick={() => handleClick(index)}>
           <ButtonSquare size={BUTTON_SIZES.MEDIUM} source={item.source} />
           <span>{item.title}</span>
@@ -54,4 +56,4 @@ const NavBarTop = () => {
   );
 };
 
-export default NavBarTop;
+export default NavBarRelease;

@@ -14,7 +14,7 @@ const ORDERING = {
 const PLATFORMS = {
   ALL: { title: 'All Platforms', value: '' },
   PC: { title: 'PC', value: '4' },
-  PLAYSTATION: { title: 'PlayStation', value: '2' },
+  PLAYSTATION: { title: 'PlayStation', value: '187' },
   XBOX: { title: 'Xbox', value: '1' },
   IOS: { title: 'iOS', value: '5' },
   Android: { title: 'Android', value: '3' },
@@ -36,7 +36,7 @@ const todayDate = new Date();
 const todayString = todayDate.toLocaleDateString().split('.').reverse().join('-');
 
 const RELEASE_DATE = {
-  ALL_TIME: { title: 'All Time', value: '' },
+  ALL_TIME: { title: 'All Time', value: `1960-01-01,${todayString}` },
   PERIOD_2020_2021: { title: '2020-2021', value: `2020-01-01,${todayString}` },
   PERIOD_2010_2019: { title: '2010-2019', value: '2010-01-01,2019-12-31' },
   PERIOD_2000_2009: { title: '2000-2009', value: '2000-01-01,2009-12-31' },

@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import { setReleaseDate } from '../redux/apiSlice';
+import { setTitle, setReleaseDate } from '../redux/apiSlice';
 import { RELEASE_DATE } from '../constants';
 
 const Wrap = styled.select`
@@ -27,7 +27,11 @@ const SelectReleaseDate = () => {
   const releaseDate = useSelector((state) => state.api.releaseDate);
   const dispatch = useDispatch();
 
-  const handleClick = (event) => dispatch(setReleaseDate(event.target.value));
+  const handleClick = (event) => {
+    const { title } = Object.values(RELEASE_DATE).filter((item) => item.value === event.target.value)[0];
+    dispatch(setTitle(title));
+    dispatch(setReleaseDate(event.target.value));
+  };
 
   return (
     <Wrap value={releaseDate} onChange={(e) => handleClick(e)}>

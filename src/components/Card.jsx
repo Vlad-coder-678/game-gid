@@ -21,6 +21,10 @@ const Wrap = styled.div`
   background-color: #202020;
   box-shadow: 0 10px 20px 0 rgb(0 0 0 / 7%);
 
+  a {
+    cursor: default;
+  }
+
   &:hover {
     transform: scale(1.05);
     transition: ease 0.3s;

@@ -10,9 +10,7 @@ const axiosInstance = axios.create({
   },
 });
 
-export const fetchInit = () => axiosInstance.get('api/games');
-
-export const fetchResults = (page = 1, pageSize, search, platform, genre, dates, ordering) => {
+const fetchResults = (page = 1, pageSize, search, platform, genre, dates, ordering) => {
   const p = page ? `page=${page}` : 'page=1';
   const pS = pageSize ? `&page_size=${pageSize}` : '';
   const sV = search && search.length > 0 ? `&search=${search}` : '';
@@ -23,3 +21,5 @@ export const fetchResults = (page = 1, pageSize, search, platform, genre, dates,
 
   return axiosInstance.get(`api/games?${p}${pS}${sV}${pl}${gen}${dat}${ord}`);
 };
+
+export default fetchResults;

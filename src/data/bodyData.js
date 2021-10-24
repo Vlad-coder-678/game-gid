@@ -1,4 +1,3 @@
-import { ORDERING } from '../constants';
 // releases
 import star from '../assets/svg/star.svg';
 import fire from '../assets/svg/fire.svg';
@@ -56,9 +55,9 @@ const next7days = () => {
   const todayDate = new Date();
   const todayString = todayDate.toLocaleDateString().split('.').reverse().join('-');
   const dayOfNextWeekDate = new Date();
-  dayOfNextWeekDate.setDate(dayOfNextWeekDate.getDate() - 7);
+  dayOfNextWeekDate.setDate(dayOfNextWeekDate.getDate() + 7);
   const dayOfNextWeekString = dayOfNextWeekDate.toLocaleDateString().split('.').reverse().join('-');
-  return `${dayOfNextWeekString},${todayString}`;
+  return `${todayString},${dayOfNextWeekString}`;
 };
 
 const lastYear = () => {
@@ -88,38 +87,35 @@ const navBarData = {
   releases_data: [
     {
       source: star,
-      text: 'Last 30 days',
+      title: 'Last 30 days',
       dates: last30days(),
     },
     {
       source: fire,
-      text: 'This week',
+      title: 'This week',
       dates: last7days(),
     },
     {
       source: nextWeek,
-      text: 'Next week',
+      title: 'Next week',
       dates: next7days(),
     },
   ],
   top_data: [
     {
       source: prize,
-      text: 'Best of the year',
+      title: 'Best of the year',
       dates: lastYear(),
-      ordering: ORDERING.RATING,
     },
     {
       source: award,
-      text: 'Popular on 2020',
+      title: 'Popular on 2020',
       dates: year2020(),
-      ordering: ORDERING.RATING,
     },
     {
       source: crown,
-      text: 'All time top 250',
+      title: 'All time top 250',
       dates: allTime(),
-      ordering: ORDERING.RATING,
     },
   ],
   browse_data: [

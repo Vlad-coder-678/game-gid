@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import styled from 'styled-components';
 
-import { orderingBy } from '../redux/apiSlice';
+import { setTitle, orderingBy } from '../redux/apiSlice';
 import { ORDERING } from '../constants';
 
 const Wrap = styled.select`
@@ -27,7 +27,11 @@ const SelectOrderingBy = () => {
   const ordering = useSelector((state) => state.api.ordering);
   const dispatch = useDispatch();
 
-  const handleClick = (event) => dispatch(orderingBy(event.target.value));
+  const handleClick = (event) => {
+    const { title } = Object.values(ORDERING).filter((item) => item.value === event.target.value)[0];
+    dispatch(setTitle(title));
+    dispatch(orderingBy(event.target.value));
+  };
 
   return (
     <Wrap value={ordering} onChange={(e) => handleClick(e)}>
