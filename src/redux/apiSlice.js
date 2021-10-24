@@ -9,7 +9,7 @@ export const sectionApiSlice = createSlice({
     title: 'All Games',
     platforms: PLATFORMS.ALL.value,
     genres: GENRES.ALL.value,
-    ordering: ORDERING.ADDED.value,
+    ordering: ORDERING.POPULARITY_TOP_TO_BOTTOM.value,
     pageSize: 20,
     currentPage: 1,
     cards: [],

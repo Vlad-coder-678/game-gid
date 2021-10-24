@@ -12,27 +12,14 @@ const axiosInstance = axios.create({
 
 export const fetchInit = () => axiosInstance.get('api/games');
 
-// export const fetchResults = (
-//   page = 1,
-//   pageSize,
-//   search,
-//   platforms,
-//   genres,
-//   dates,
-//   metacritic,
-//   ordering
-// ) => axiosInstance
-// .get(`api/games?page=${page}${pageSize ? `&page_size=${pageSize}` : ''}${
-//   search && search.length > 0 ? `&search=${search}` : ''
-// }${platforms ? `&platforms=${platforms}` : ''}${genres && genres.length > 0 ? `&genres=${genres}` : ''}${
-//   dates && dates.length > 0 ? `&dates=${dates}` : ''
-// }${metacritic ? `&metacritic=${metacritic}` : ''}${ordering ? `&ordering=${ordering}` : ''}
-// `);
+export const fetchResults = (page = 1, pageSize, search, platform, genre, dates, ordering) => {
+  const p = page ? `page=${page}` : 'page=1';
+  const pS = pageSize ? `&page_size=${pageSize}` : '';
+  const sV = search && search.length > 0 ? `&search=${search}` : '';
+  const pl = platform ? `&platforms=${platform}` : '';
+  const gen = genre && genre.length > 0 ? `&genres=${genre}` : '';
+  const dat = dates && dates.length > 0 ? `&dates=${dates}` : '';
+  const ord = ordering ? `&ordering=${ordering}` : '';
 
-export const fetchResults = (page = 1, pageSize, search, platform, genre, dates, ordering) => axiosInstance
-.get(`api/games?page=${page}${pageSize ? `&page_size=${pageSize}` : ''}${
-  search && search.length > 0 ? `&search=${search}` : ''
-}${platform ? `&platforms=${platform}` : ''}${genre && genre.length > 0 ? `&genres=${genre}` : ''}${
-  dates && dates.length > 0 ? `&dates=${dates}` : ''
-}${ordering ? `&ordering=-${ordering}` : ''}
-`);
+  return axiosInstance.get(`api/games?${p}${pS}${sV}${pl}${gen}${dat}${ord}`);
+};

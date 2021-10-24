@@ -1,25 +1,42 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
+
 import { setReleaseDate } from '../redux/apiSlice';
 import { RELEASE_DATE } from '../constants';
+
+const Wrap = styled.select`
+  background-color: #333;
+  line-height: 2rem;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  outline: none;
+
+  option {
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    padding: 5px;
+  }
+`;
 
 const SelectReleaseDate = () => {
   const releaseDate = useSelector((state) => state.api.releaseDate);
   const dispatch = useDispatch();
 
+  const handleClick = (event) => dispatch(setReleaseDate(event.target.value));
+
   return (
-    <select
-      value={releaseDate}
-      onChange={(e) => {
-        dispatch(setReleaseDate(e.target.value));
-      }}
-    >
+    <Wrap value={releaseDate} onChange={(e) => handleClick(e)}>
       {Object.values(RELEASE_DATE).map((item) => (
         <option key={item.title} value={item.value}>
           {item.title}
         </option>
       ))}
-    </select>
+    </Wrap>
   );
 };
 

@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import CardTop from './CardTop';
+import CardMetacritic from './CardMetacritic';
 import CardPlatforms from './CardPlatforms';
 import CardTitle from './CardTitle';
 import CardButtons from './CardButtons';
@@ -26,6 +27,7 @@ const Wrap = styled.div`
 `;
 
 const CardBottom = styled.div`
+  position: relative;
   padding: 10px;
 `;
 
@@ -33,6 +35,7 @@ const Card = ({ card }) => (
   <Wrap>
     <CardTop bg={card.background_image} name={card.name} />
     <CardBottom>
+      {card.metacritic && <CardMetacritic metacritic={card.metacritic} />}
       <CardPlatforms card={card} />
       <CardTitle title={card.name} />
       <CardButtons added={card.added} />

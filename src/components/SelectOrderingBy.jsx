@@ -1,27 +1,42 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import styled from 'styled-components';
+
 import { orderingBy } from '../redux/apiSlice';
 import { ORDERING } from '../constants';
+
+const Wrap = styled.select`
+  background-color: #333;
+  line-height: 2rem;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+  outline: none;
+
+  option {
+    background-color: #fff;
+    color: #000;
+    border-radius: 5px;
+    padding: 5px;
+  }
+`;
 
 const SelectOrderingBy = () => {
   const ordering = useSelector((state) => state.api.ordering);
   const dispatch = useDispatch();
 
+  const handleClick = (event) => dispatch(orderingBy(event.target.value));
+
   return (
-    <select
-      value={ordering}
-      onChange={(e) => {
-        dispatch(orderingBy(e.target.value));
-      }}
-    >
-      {Object.values(ORDERING).map(
-        (item, index) => index < 5 && (
-          <option key={item.value} value={item.value}>
-            {item.title}
-          </option>
-        ),
-      )}
-    </select>
+    <Wrap value={ordering} onChange={(e) => handleClick(e)}>
+      {Object.values(ORDERING).map((item) => (
+        <option key={item.value} value={item.value}>
+          {item.title}
+        </option>
+      ))}
+    </Wrap>
   );
 };
 
