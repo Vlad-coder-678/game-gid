@@ -9,11 +9,25 @@ const Wrap = styled.nav`
   height: 100px;
   padding: 24px 40px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 
   .activeLink {
     color: white;
+  }
+
+  @media screen and (max-width: 768px) {
+    padding: 20px 0;
+  }
+`;
+
+const LogWrap = styled.div`
+  flex-basis: 25%;
+  order: 1;
+
+  @media screen and (max-width: 768px) {
+    order: 1;
   }
 `;
 
@@ -29,6 +43,26 @@ const Logo = styled.button`
   }
 `;
 
+const SearchWrap = styled.div`
+  margin: 10px 0;
+  flex-basis: 40%;
+  order: 2;
+
+  @media screen and (max-width: 768px) {
+    flex-basis: 100%;
+    order: 3;
+  }
+`;
+
+const LogInWrap = styled.button`
+  flex-basis: 25%;
+  order: 3;
+
+  @media screen and (max-width: 768px) {
+    order: 2;
+  }
+`;
+
 const Header = () => {
   const history = useHistory();
   const { pathname } = useLocation();
@@ -37,13 +71,13 @@ const Header = () => {
 
   return (
     <Wrap>
-      <div>
+      <LogWrap>
         <Logo onClick={handleClick}>RAWG</Logo>
-      </div>
-      <div>
+      </LogWrap>
+      <SearchWrap>
         <Search />
-      </div>
-      <button type="button">Log In</button>
+      </SearchWrap>
+      <LogInWrap type="button">Log In</LogInWrap>
     </Wrap>
   );
 };

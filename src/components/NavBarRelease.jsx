@@ -37,8 +37,6 @@ const NavBarRelease = () => {
   const handleClick = (index) => {
     dispatch(setDefaultData());
     const currData = navBarData.releases_data[index];
-    // eslint-disable-next-line no-console
-    console.log(currData.dates);
     dispatch(setTitle(currData.title));
     dispatch(setReleaseDate(currData.dates));
   };

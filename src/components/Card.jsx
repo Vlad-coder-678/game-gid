@@ -29,6 +29,10 @@ const Wrap = styled.div`
     transform: scale(1.05);
     transition: ease 0.3s;
   }
+
+  @media screen and (max-width: 768px) {
+    width: 250px;
+  }
 `;
 
 const CardBottom = styled.div`
