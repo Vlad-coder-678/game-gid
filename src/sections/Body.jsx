@@ -6,13 +6,14 @@ import Home from '../pages/Home';
 import Details from '../pages/Details';
 import NotFound from '../pages/NotFound';
 
-import { fetchGamesResults } from '../redux/apiSlice';
+import { setIsScrollDown, fetchGamesResults, fetchMoreResults } from '../redux/apiSlice';
 
 const Body = () => {
   const location = useLocation();
   const stateApi = useSelector((state) => state.api);
 
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(
       fetchGamesResults(
@@ -31,10 +32,29 @@ const Body = () => {
     stateApi.platforms,
     stateApi.genres,
     stateApi.ordering,
-    stateApi.currentPage,
     stateApi.searchValue,
     stateApi.releaseDate,
   ]);
+
+  const handlerScroll = () => {
+    if (stateApi.isScrollDown) dispatch(
+      fetchMoreResults(
+        stateApi.currentPage,
+        stateApi.pageSize,
+        stateApi.searchValue,
+        stateApi.platforms,
+        stateApi.genres,
+        stateApi.releaseDate,
+        stateApi.ordering,
+      ),
+    );
+    dispatch(setIsScrollDown(false));
+  };
+
+  useEffect(() => {
+    window.addEventListener('scroll', handlerScroll);
+    return () => window.removeEventListener('scroll', handlerScroll);
+  }, [stateApi.isScrollDown, window.scrollY]);
 
   return (
     <Switch location={location}>

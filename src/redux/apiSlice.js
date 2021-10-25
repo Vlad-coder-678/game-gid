@@ -16,6 +16,7 @@ export const sectionApiSlice = createSlice({
     isLoading: false,
     searchValue: '',
     releaseDate: RELEASE_DATE.ALL_TIME.value,
+    isScrollDown: false,
   },
   reducers: {
     setTitle: (state, action) => {
@@ -42,6 +43,9 @@ export const sectionApiSlice = createSlice({
     setCards: (state, action) => {
       state.cards = action.payload;
     },
+    appendCards: (state, action) => {
+      state.cards = [...state.cards, ...action.payload];
+    },
     setIsLoading: (state, action) => {
       state.isLoading = action.payload;
     },
@@ -50,6 +54,9 @@ export const sectionApiSlice = createSlice({
     },
     setReleaseDate: (state, action) => {
       state.releaseDate = action.payload;
+    },
+    setIsScrollDown: (state, action) => {
+      state.isScrollDown = action.payload;
     },
     setDefaultData: (state) => {
       state.title = 'All Games';
@@ -78,6 +85,8 @@ export const {
   setSearchValue,
   setReleaseDate,
   setDefaultData,
+  appendCards,
+  setIsScrollDown,
 } = sectionApiSlice.actions;
 
 export const fetchGamesResults = (page, pageSize, search, platforms, genres, dates, ordering) => async (dispatch) => {
@@ -87,6 +96,24 @@ export const fetchGamesResults = (page, pageSize, search, platforms, genres, dat
     if (response) {
       const { results } = response.data;
       dispatch(setCards(results));
+    }
+  } catch (error) {
+    // eslint-disable-next-line no-console
+    console.error(error);
+  } finally {
+    dispatch(setIsLoading(false));
+  }
+};
+
+export const fetchMoreResults = (page, pageSize, search, platforms, genres, dates, ordering) => async (dispatch) => {
+  // eslint-disable-next-line no-console
+  console.log('more');
+  dispatch(setIsLoading(true));
+  try {
+    const response = await fetchResults(page, pageSize, search, platforms, genres, dates, ordering);
+    if (response) {
+      const { results } = response.data;
+      dispatch(appendCards(results));
     }
   } catch (error) {
     // eslint-disable-next-line no-console
