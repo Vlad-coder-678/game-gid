@@ -1,0 +1,72 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier", "airbnb"],
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": ["react", "react-hooks", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
+    }
+  },
+  "rules": {
+    "no-use-before-define": "warn",
+    "no-shadow": "warn",
+    "comma-dangle": "off",
+    "curly": ["warn", "multi"],
+    "implicit-arrow-linebreak": ["warn", "beside"],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "js": "never",
+        "jsx": "never"
+      }
+    ],
+    "import/no-cycle": "error",
+    "import/no-self-import": "error",
+    "import/no-unresolved": "error",
+    "import/prefer-default-export": "error",
+    "indent": ["error", 2, { "SwitchCase": 1, "MemberExpression": "off" }],
+    "jsx-a11y/click-events-have-key-events": "off",
+    "linebreak-style": ["error", "windows"],
+    "max-len": ["warn", { "code": 120 }],
+    "operator-linebreak": ["error", "before"],
+    "no-console": "warn",
+    "no-param-reassign": ["error", { "props": false }],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "off",
+    "react/button-has-type": "off",
+    "react/jsx-curly-newline": [0, { "multiline": "consistent", "singleline": "consistent" }],
+    "react/jsx-filename-extension": [0, { "extensions": [".js", ".jsx"] }],
+    "react/jsx-one-expression-per-line": "off",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/prop-types": "off",
+    "semi": ["error", "always"],
+    "no-continue": "error",
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "no-underscore-dangle": ["error", { "allow": ["_id"] }],
+    "nonblock-statement-body-position": ["error", "beside"],
+    "object-curly-newline": [
+      0,
+      {
+        "ObjectExpression": { "multiline": true },
+        "ObjectPattern": "always",
+        "ImportDeclaration": "never",
+        "ExportDeclaration": "always"
+      }
+    ]
+  }
+}

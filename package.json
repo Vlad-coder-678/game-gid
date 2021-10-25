@@ -1,0 +1,59 @@
+{
+  "name": "game-gid",
+  "version": "1.0.0",
+  "description": "test task",
+  "main": "index.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --mode production",
+    "dev": "cross-env NODE_ENV=development webpack --mode development",
+    "start": "cross-env NODE_ENV=development webpack serve --mode development",
+    "deploy": "gh-pages -d build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Vlad-coder-678/game-gid.git"
+  },
+  "author": "Vlad-coder-678",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Vlad-coder-678/game-gid/issues"
+  },
+  "homepage": "https://github.com/Vlad-coder-678/game-gid#readme",
+  "dependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.15.8",
+    "@babel/preset-react": "^7.14.5",
+    "@reduxjs/toolkit": "^1.6.2",
+    "axios": "^0.23.0",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "cross-env": "^7.0.3",
+    "eslint": "^8.0.1",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "eslint-webpack-plugin": "^3.0.1",
+    "file-loader": "^6.2.0",
+    "gh-pages": "^3.2.3",
+    "html-webpack-plugin": "^5.4.0",
+    "prettier": "^2.4.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
+    "react-router-dom": "^5.3.0",
+    "react-transition-group": "^4.4.2",
+    "styled-components": "^5.3.3",
+    "terser-webpack-plugin": "^5.2.4",
+    "webpack": "^5.59.0",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "^4.3.1"
+  },
+  "devDependencies": {}
+}
