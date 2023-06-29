@@ -1,8 +1,8 @@
-import React from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import styled from "styled-components";
 
-import Search from '../components/Search';
+import Search from "../components/Search";
 
 const Wrap = styled.nav`
   width: 100%;
@@ -64,10 +64,10 @@ const LogInWrap = styled.button`
 `;
 
 const Header = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  const handleClick = () => pathname !== '/' && history.push('/');
+  const handleClick = () => pathname !== "/" && navigate("/");
 
   return (
     <Wrap>

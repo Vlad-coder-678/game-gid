@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import styled from 'styled-components';
+import React, { useState } from "react";
+import styled from "styled-components";
 
-import NavBar from '../components/NavBar';
-import Main from '../components/Main';
+import NavBar from "../components/NavBar";
+import Main from "../components/Main";
 
-import menu from '../assets/svg/menu.svg';
+import menu from "../assets/svg/menu.svg";
 
 const Wrap = styled.div`
   position: relative;

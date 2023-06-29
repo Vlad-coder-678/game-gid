@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import PlatformLogo from './PlatformLogo';
+import PlatformLogo from "./PlatformLogo";
 
 const Platforms = styled.div`
   display: flex;

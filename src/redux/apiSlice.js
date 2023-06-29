@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { API_KEY, PLATFORMS, GENRES, ORDERING, RELEASE_DATE } from '../constants';
-import fetchResults from '../utils/axios';
+import { createSlice } from "@reduxjs/toolkit";
+import { PLATFORMS, GENRES, ORDERING, RELEASE_DATE } from "../constants";
+import fetchResults from "../utils/axios";
 
 export const sectionApiSlice = createSlice({
-  name: 'sectionApi',
+  name: "sectionApi",
   initialState: {
-    apiKey: API_KEY,
-    title: 'All Games',
+    apiKey: process.env.API_KEY,
+    title: "All Games",
     platforms: PLATFORMS.ALL.value,
     genres: GENRES.ALL.value,
     ordering: ORDERING.POPULARITY_TOP_TO_BOTTOM.value,
@@ -14,7 +14,7 @@ export const sectionApiSlice = createSlice({
     currentPage: 1,
     cards: [],
     isLoading: false,
-    searchValue: '',
+    searchValue: "",
     releaseDate: RELEASE_DATE.ALL_TIME.value,
     isScrollDown: false,
   },
@@ -59,14 +59,14 @@ export const sectionApiSlice = createSlice({
       state.isScrollDown = action.payload;
     },
     setDefaultData: (state) => {
-      state.title = 'All Games';
+      state.title = "All Games";
       state.platforms = PLATFORMS.ALL.value;
       state.genres = GENRES.ALL.value;
       state.ordering = ORDERING.POPULARITY_TOP_TO_BOTTOM.value;
       state.pageSize = 20;
       state.currentPage = 1;
       state.isLoading = false;
-      state.searchValue = '';
+      state.searchValue = "";
       state.releaseDate = RELEASE_DATE.ALL_TIME.value;
     },
   },
@@ -91,8 +91,10 @@ export const {
 
 export const fetchGamesResults = (page, pageSize, search, platforms, genres, dates, ordering) => async (dispatch) => {
   dispatch(setIsLoading(true));
+
   try {
-    const response = await fetchResults(page, pageSize, search, platforms, genres, dates, ordering);
+    const response = await fetchResults({ page, pageSize, search, platforms, genres, dates, ordering });
+
     if (response) {
       const { results } = response.data;
       dispatch(setCards(results));
@@ -106,11 +108,10 @@ export const fetchGamesResults = (page, pageSize, search, platforms, genres, dat
 };
 
 export const fetchMoreResults = (page, pageSize, search, platforms, genres, dates, ordering) => async (dispatch) => {
-  // eslint-disable-next-line no-console
-  console.log('more');
   dispatch(setIsLoading(true));
+
   try {
-    const response = await fetchResults(page, pageSize, search, platforms, genres, dates, ordering);
+    const response = await fetchResults({ page, pageSize, search, platforms, genres, dates, ordering });
     if (response) {
       const { results } = response.data;
       dispatch(appendCards(results));

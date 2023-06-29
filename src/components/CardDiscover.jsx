@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import arrow from '../assets/svg/arrow-right.svg';
+import arrow from "../assets/svg/arrow-right.svg";
 
 const ShowButton = styled.button`
   width: 100%;

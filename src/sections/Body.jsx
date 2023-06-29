@@ -1,17 +1,18 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Switch, Route, useLocation } from 'react-router-dom';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Routes, Route, useLocation } from "react-router-dom";
 
-import Home from '../pages/Home';
-import Details from '../pages/Details';
-import NotFound from '../pages/NotFound';
+import Header from "./Header";
+import Home from "../pages/Home";
+import Details from "../pages/Details";
+import NotFound from "../pages/NotFound";
 
-import { setIsScrollDown, fetchGamesResults, fetchMoreResults } from '../redux/apiSlice';
+import { setIsScrollDown, fetchGamesResults, fetchMoreResults } from "../redux/apiSlice";
+import Container from "../components/common/mainContainer";
 
 const Body = () => {
-  const location = useLocation();
   const stateApi = useSelector((state) => state.api);
-
+  const location = useLocation();
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -52,20 +53,20 @@ const Body = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handlerScroll);
-    return () => window.removeEventListener('scroll', handlerScroll);
+    window.addEventListener("scroll", handlerScroll);
+
+    return () => window.removeEventListener("scroll", handlerScroll);
   }, [stateApi.isScrollDown, window.scrollY]);
 
   return (
-    <Switch location={location}>
-      <Route path="/" exact>
-        <Home />
-      </Route>
-      <Route path="/game/:slug" render={() => <Details />} />
-      <Route path="*">
-        <NotFound />
-      </Route>
-    </Switch>
+    <Container>
+      <Header />
+      <Routes location={location}>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/game/:slug" render={() => <Details />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Container>
   );
 };
 

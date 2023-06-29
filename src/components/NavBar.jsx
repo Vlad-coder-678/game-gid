@@ -1,11 +1,11 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import NavBarHome from './NavBarHome';
-import NavBarRelease from './NavBarRelease';
-import NavBarTop from './NavBarTop';
+import NavBarHome from "./NavBarHome";
+import NavBarRelease from "./NavBarRelease";
+import NavBarTop from "./NavBarTop";
 
-import close from '../assets/svg/close.svg';
+import close from "../assets/svg/close.svg";
 
 const Wrap = styled.div`
   position: relative;
@@ -17,7 +17,7 @@ const Wrap = styled.div`
   background-color: transparent;
 
   @media screen and (max-width: 768px) {
-    display: ${({ isVisible }) => (isVisible ? 'flex' : 'none')};
+    display: ${({ isVisible }) => (isVisible ? "flex" : "none")};
     position: absolute;
     top: 0;
     right: 0;

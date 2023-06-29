@@ -1,29 +1,29 @@
-import React from 'react';
+import React from "react";
 
-import linux from '../assets/svg/linux.svg';
-import mac from '../assets/svg/mac.svg';
-import nintendo from '../assets/svg/nintendo.svg';
-import pc from '../assets/svg/pc.svg';
-import playstation from '../assets/svg/playstation.svg';
-import web from '../assets/svg/web.svg';
-import xbox from '../assets/svg/xbox.svg';
+import linux from "../assets/svg/linux.svg";
+import mac from "../assets/svg/mac.svg";
+import nintendo from "../assets/svg/nintendo.svg";
+import pc from "../assets/svg/pc.svg";
+import playstation from "../assets/svg/playstation.svg";
+import web from "../assets/svg/web.svg";
+import xbox from "../assets/svg/xbox.svg";
 
 const PlatformLogo = ({ slug }) => {
   const choiceSrc = (source) => {
     switch (source) {
-      case 'linux':
+      case "linux":
         return linux;
-      case 'mac':
+      case "mac":
         return mac;
-      case 'nintendo':
+      case "nintendo":
         return nintendo;
-      case 'pc':
+      case "pc":
         return pc;
-      case 'playstation':
+      case "playstation":
         return playstation;
-      case 'web':
+      case "web":
         return web;
-      case 'xbox':
+      case "xbox":
         return xbox;
       default:
         return web;

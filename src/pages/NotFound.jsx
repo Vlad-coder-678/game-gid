@@ -1,7 +1,7 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import notFoundData from '../data/notFoundData';
+import notFoundData from "../data/notFoundData";
 
 const Wrap = styled.div`
   display: flex;

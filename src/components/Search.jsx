@@ -1,9 +1,9 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { useLocation, useHistory } from 'react-router-dom';
-import styled from 'styled-components';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import styled from "styled-components";
 
-import { setSearchValue } from '../redux/apiSlice';
+import { setSearchValue } from "../redux/apiSlice";
 
 const Wrap = styled.div`
   display: flex;
@@ -43,10 +43,10 @@ const Search = () => {
   const searchValue = useSelector((state) => state.api.searchValue);
   const dispatch = useDispatch();
   const { pathname } = useLocation();
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    if (pathname !== '/') history.push('/');
+    if (pathname !== "/") navigate("/");
     dispatch(setSearchValue(e.target.value));
   };
 
@@ -65,7 +65,7 @@ const Search = () => {
           />
         </label>
         <button type="submit" disabled={isLoading}>
-          {isLoading ? 'loading...' : 'Search'}
+          {isLoading ? "loading..." : "Search"}
         </button>
       </form>
     </Wrap>

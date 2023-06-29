@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import styled from 'styled-components';
+import React, { useEffect, useRef } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import styled from "styled-components";
 
-import Card from './Card';
-import { setCurrentPage, setIsScrollDown } from '../redux/apiSlice';
+import Card from "./Card";
+import { setCurrentPage, setIsScrollDown } from "../redux/apiSlice";
 
 const Wrap = styled.div`
   width: 100%;
@@ -31,8 +31,8 @@ const Content = () => {
   };
 
   useEffect(() => {
-    window.addEventListener('scroll', handlerScroll);
-    return () => window.removeEventListener('scroll', handlerScroll);
+    window.addEventListener("scroll", handlerScroll);
+    return () => window.removeEventListener("scroll", handlerScroll);
   }, [window.scrollY]);
 
   return (

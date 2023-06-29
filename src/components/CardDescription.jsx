@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
 const Wrap = styled.div`
   width: 100%;
@@ -10,7 +10,7 @@ const WrapDesc = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 5px;
-  border-bottom: ${({ line }) => (line ? '2px solid #333' : 'none')};
+  border-bottom: ${({ line }) => (line ? "2px solid #333" : "none")};
 `;
 
 const DescTitle = styled.span`
@@ -49,7 +49,7 @@ const CardDescription = ({ released, genres }) => (
           {genres.map((genre, index) => (
             <span key={genre.name}>
               <button>{genre.name}</button>
-              {index < genres.length - 1 && ', '}
+              {index < genres.length - 1 && ", "}
             </span>
           ))}
         </DescPosition>

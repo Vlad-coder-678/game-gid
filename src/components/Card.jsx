@@ -1,14 +1,14 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import React from "react";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 
-import CardTop from './CardTop';
-import CardMetacritic from './CardMetacritic';
-import CardPlatforms from './CardPlatforms';
-import CardTitle from './CardTitle';
-import CardButtons from './CardButtons';
-import CardDescription from './CardDescription';
-import CardDiscover from './CardDiscover';
+import CardTop from "./CardTop";
+import CardMetacritic from "./CardMetacritic";
+import CardPlatforms from "./CardPlatforms";
+import CardTitle from "./CardTitle";
+import CardButtons from "./CardButtons";
+import CardDescription from "./CardDescription";
+import CardDiscover from "./CardDiscover";
 
 const Wrap = styled.div`
   width: 300px;
@@ -42,7 +42,7 @@ const CardBottom = styled.div`
 
 const Card = ({ card }) => {
   const handleClick = () => {
-    window.localStorage.setItem('card', JSON.stringify(card));
+    window.localStorage.setItem("card", JSON.stringify(card));
   };
 
   return (

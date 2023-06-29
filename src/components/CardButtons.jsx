@@ -1,12 +1,12 @@
-import React from 'react';
-import styled from 'styled-components';
+import React from "react";
+import styled from "styled-components";
 
-import ButtonSquare from './ButtonSquare';
-import { BUTTON_SIZES } from '../constants';
+import ButtonSquare from "./ButtonSquare";
+import { BUTTON_SIZES } from "../constants";
 
-import plus from '../assets/svg/plus.svg';
-import present from '../assets/svg/present.svg';
-import ellipsis from '../assets/svg/ellipsis.svg';
+import plus from "../assets/svg/plus.svg";
+import present from "../assets/svg/present.svg";
+import ellipsis from "../assets/svg/ellipsis.svg";
 
 const Wrap = styled.div`
   display: flex;

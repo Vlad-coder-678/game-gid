@@ -1,9 +1,9 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
 
-import { setTitle, orderingBy } from '../redux/apiSlice';
-import { ORDERING } from '../constants';
+import { setTitle, orderingBy } from "../redux/apiSlice";
+import { ORDERING } from "../constants";
 
 const Wrap = styled.select`
   background-color: #333;

@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import { useDispatch } from 'react-redux';
+import React from "react";
+import styled from "styled-components";
+import { useDispatch } from "react-redux";
 
-import NavBarTitle from './NavBarTitle';
-import ButtonSquare from './ButtonSquare';
+import NavBarTitle from "./NavBarTitle";
+import ButtonSquare from "./ButtonSquare";
 
-import navBarData from '../data/bodyData';
-import { BUTTON_SIZES } from '../constants';
-import { setDefaultData, setTitle, setReleaseDate } from '../redux/apiSlice';
+import navBarData from "../data/bodyData";
+import { BUTTON_SIZES } from "../constants";
+import { setDefaultData, setTitle, setReleaseDate } from "../redux/apiSlice";
 
 const Wrap = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ const WrapItem = styled.div`
   }
 
   &:hover button {
-    ${({ size }) => size !== 'big' && 'filter: invert(100%) saturate(7500%) hue-rotate(322deg) brightness(118%);'}
+    ${({ size }) => size !== "big" && "filter: invert(100%) saturate(7500%) hue-rotate(322deg) brightness(118%);"}
   }
 `;
 

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
+import React, { useState } from "react";
+import styled, { css } from "styled-components";
 
-import arrowPrev from '../assets/svg/arrow-right.svg';
+import arrowPrev from "../assets/svg/arrow-right.svg";
 
 const Wrap = styled.div`
   position: relative;

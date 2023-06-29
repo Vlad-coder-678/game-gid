@@ -1,9 +1,9 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import styled from 'styled-components';
+import React from "react";
+import { useSelector, useDispatch } from "react-redux";
+import styled from "styled-components";
 
-import { setTitle, setReleaseDate } from '../redux/apiSlice';
-import { RELEASE_DATE } from '../constants';
+import { setTitle, setReleaseDate } from "../redux/apiSlice";
+import { RELEASE_DATE } from "../constants";
 
 const Wrap = styled.select`
   background-color: #333;

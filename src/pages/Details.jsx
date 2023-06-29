@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import { Redirect, useLocation } from 'react-router-dom';
-import styled from 'styled-components';
+import React, { useState, useEffect } from "react";
+import { Navigate, useLocation } from "react-router-dom";
+import styled from "styled-components";
 
-import DetailsSlider from '../components/DetailsSlider';
-import CardPlatforms from '../components/CardPlatforms';
-import ButtonSquare from '../components/ButtonSquare';
-import home from '../assets/svg/home.svg';
-import pacman from '../assets/svg/pacman.svg';
+import DetailsSlider from "../components/DetailsSlider";
+import CardPlatforms from "../components/CardPlatforms";
+import ButtonSquare from "../components/ButtonSquare";
+import home from "../assets/svg/home.svg";
+import pacman from "../assets/svg/pacman.svg";
 
 const Wrap = styled.div`
   width: 100%;
@@ -42,20 +42,20 @@ const Buttons = styled.div`
 
 const Details = () => {
   const [cardData, setCardData] = useState({});
-  const [linkGame, setLinkGame] = useState('');
+  const [linkGame, setLinkGame] = useState("");
   const [isRedirectToHome, setIsRedirectToHome] = useState(false);
   const { pathname } = useLocation();
 
   useEffect(() => {
     if (cardData.slug) {
-      const request = cardData.slug.split('-').join('+');
+      const request = cardData.slug.split("-").join("+");
       const link = `https://www.google.com/search?q=${request}`;
       setLinkGame(link);
     }
   }, [cardData]);
 
   useEffect(() => {
-    let data = window.localStorage.getItem('card');
+    let data = window.localStorage.getItem("card");
     if (data) {
       data = JSON.parse(data);
       const pathnameFromCard = `/game/${data.slug}`;
@@ -83,7 +83,7 @@ const Details = () => {
             {cardData.genres.map((genre, index) => (
               <span key={genre.name}>
                 {genre.name}
-                {index !== cardData.genres.length - 1 && ', '}
+                {index !== cardData.genres.length - 1 && ", "}
               </span>
             ))}
           </div>
@@ -110,7 +110,7 @@ const Details = () => {
       <Buttons>
         <ButtonSquare size="small" source={pacman} added="GameSite" handleClick={() => window.open(linkGame)} />
         <ButtonSquare size="small" source={home} added="Link to home" handleClick={() => setIsRedirectToHome(true)} />
-        {isRedirectToHome && <Redirect to="/" />}
+        {isRedirectToHome && <Navigate to="/" />}
       </Buttons>
     </Wrap>
   );
