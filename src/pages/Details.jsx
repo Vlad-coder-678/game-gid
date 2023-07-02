@@ -1,44 +1,24 @@
+// vendor imports
 import React, { useState, useEffect } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import styled from "styled-components";
 
-import DetailsSlider from "../components/DetailsSlider";
-import CardPlatforms from "../components/CardPlatforms";
-import ButtonSquare from "../components/ButtonSquare";
+// local imports
+// assets
 import home from "../assets/svg/home.svg";
 import pacman from "../assets/svg/pacman.svg";
+// constants
+import ROUTE from "../constants/routes";
+// components
+import DetailsSlider from "../components/Slider";
+import CardPlatforms from "../components/elements/CardComponent/CardPlatforms";
+import ButtonSquare from "../components/common/SquareButton";
 
-const Wrap = styled.div`
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-cntent: center;
-  align-items: center;
-`;
-
-const DetailsTitle = styled.h1`
-  margin: 10px;
-`;
-
-const Desc = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-iems: center;
-  margin: 10px;
-  padding: 10px;
-  width: 70%;
-  border-bottom: 2px solid #333;
-
-  @media screen and (max-width: 768px) {
-    width: 90%;
-  }
-`;
-
-const Buttons = styled.div`
-  display: flex;
-  margin: 10px auto 30px;
-`;
+import {
+  Buttons,
+  Desc,
+  DetailsTitle,
+  Wrap,
+} from "../components/pages/details/styles";
 
 const Details = () => {
   const [cardData, setCardData] = useState({});
@@ -58,7 +38,7 @@ const Details = () => {
     let data = window.localStorage.getItem("card");
     if (data) {
       data = JSON.parse(data);
-      const pathnameFromCard = `/game/${data.slug}`;
+      const pathnameFromCard = `${ROUTE.games}/${data.slug}`;
       if (pathnameFromCard !== pathname) setIsRedirectToHome(true);
       else setCardData(data);
     } else setIsRedirectToHome(true);
@@ -110,7 +90,7 @@ const Details = () => {
       <Buttons>
         <ButtonSquare size="small" source={pacman} added="GameSite" handleClick={() => window.open(linkGame)} />
         <ButtonSquare size="small" source={home} added="Link to home" handleClick={() => setIsRedirectToHome(true)} />
-        {isRedirectToHome && <Navigate to="/" />}
+        {isRedirectToHome && <Navigate to={ROUTE.main} />}
       </Buttons>
     </Wrap>
   );

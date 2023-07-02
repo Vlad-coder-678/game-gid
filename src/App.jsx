@@ -1,15 +1,14 @@
+// vendor imports
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
 
-import GlobalStyle from "./globalStyle";
-import Body from "./sections/Body";
+// local imports
+import HeadComponent from "./components/layout/HeadComponent";
+import ViewComponent from "./components/layout/ViewComponent";
 
 const App = () => (
   <>
-    <GlobalStyle />
-    <Router>
-      <Body />
-    </Router>
+    <HeadComponent />
+    <ViewComponent />
   </>
 );
 

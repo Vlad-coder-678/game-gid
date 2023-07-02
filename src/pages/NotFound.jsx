@@ -1,17 +1,11 @@
+// vendor imports
 import React from "react";
-import styled from "styled-components";
 
+// local imports
+// data
 import notFoundData from "../data/notFoundData";
-
-const Wrap = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  p {
-    margin: 10px 0;
-  }
-`;
+// components
+import Wrap from "../components/pages/notFound/styles";
 
 const NotFound = () => (
   <Wrap>

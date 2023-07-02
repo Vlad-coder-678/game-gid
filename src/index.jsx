@@ -1,17 +1,28 @@
+// vendor imports
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import reportWebVitals from "./utils/reportWebVitals";
+import { BrowserRouter as Router } from "react-router-dom";
 
-import store from "./redux/store";
+// local imports
+// store
+import store from "./store/store";
+// utilities
+import reportWebVitals from "./utilities/reportWebVitals";
+// components
 import App from "./App";
 
-const root = ReactDOM.createRoot(document.getElementById("react17"));
+import GlobalStyle from "./globalStyle";
+
+const root = ReactDOM.createRoot(document.getElementById("react"));
 
 root.render(
   <React.StrictMode>
     <Provider store={store}>
-      <App />
+      <GlobalStyle />
+      <Router>
+        <App />
+      </Router>
     </Provider>
   </React.StrictMode>
 );

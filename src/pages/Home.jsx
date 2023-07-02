@@ -1,36 +1,14 @@
+// vendor imports
 import React, { useState } from "react";
-import styled from "styled-components";
 
-import NavBar from "../components/NavBar";
-import Main from "../components/Main";
-
+// local imports
+// assets
 import menu from "../assets/svg/menu.svg";
-
-const Wrap = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
-const BurgerMenu = styled.button`
-  position: absolute;
-  top: 0;
-  right: 0;
-  display: none;
-  width: 22px;
-  height: 22px;
-
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  @media screen and (max-width: 768px) {
-    display: block;
-  }
-`;
+// components
+import NavBarComponent from "../components/elements/NavBarComponent";
+import Main from "../components/features/MainComponent";
+// styles
+import { BurgerMenu, Wrap } from "../components/pages/home/styles";
 
 const Home = () => {
   const [isVisibleNavBar, setIsVisibleNavBar] = useState(false);
@@ -46,7 +24,7 @@ const Home = () => {
           <img src={menu} alt="burger menu" />
         </BurgerMenu>
       )}
-      <NavBar isVisible={isVisibleNavBar} toggleVisible={handleToggleMenu} />
+      <NavBarComponent isVisible={isVisibleNavBar} toggleVisible={handleToggleMenu} />
       <Main />
     </Wrap>
   );
