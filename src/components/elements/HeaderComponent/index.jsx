@@ -1,7 +1,11 @@
+// vendor imports
 import React from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 
-import Search from "./SearchComponent";
+// local imports
+// components
+import Search from "components/elements/HeaderComponent/SearchComponent";
+// styles
 import {
   LogIn,
   LogWrap,

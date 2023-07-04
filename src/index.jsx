@@ -6,13 +6,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 
 // local imports
 // store
-import store from "./store/store";
+import store from "store/store";
 // utilities
-import reportWebVitals from "./utilities/reportWebVitals";
+import reportWebVitals from "utilities/reportWebVitals";
 // components
-import App from "./App";
-
-import GlobalStyle from "./globalStyle";
+import App from "App";
+// styles
+import GlobalStyle from "globalStyle";
 
 const root = ReactDOM.createRoot(document.getElementById("react"));
 

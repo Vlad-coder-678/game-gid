@@ -5,16 +5,16 @@ import { Routes, Route, useLocation } from "react-router-dom";
 
 // local imports
 // constants
-import ROUTE from "../../../constants/routes";
+import ROUTE from "constants/routes";
 // store
-import { setIsScrollDown } from "../../../store/apiSlice";
+import { setIsScrollDown } from "store/apiSlice";
 // utilities
-import { fetchGamesResults, fetchMoreResults } from "../../../utilities/api";
+import { fetchGamesResults, fetchMoreResults } from "utilities/api";
 // components
-import Home from "../../../pages/Home";
-import Details from "../../../pages/Details";
-import NotFound from "../../../pages/NotFound";
-import HeaderComponent from "../../elements/HeaderComponent";
+import Home from "pages/Home";
+import Details from "pages/Details";
+import NotFound from "pages/NotFound";
+import HeaderComponent from "components/elements/HeaderComponent";
 // styles
 import ViewContainer from "./styles";
 

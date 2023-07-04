@@ -3,12 +3,12 @@ import React, { useState } from "react";
 
 // local imports
 // assets
-import menu from "../assets/svg/menu.svg";
+import menu from "assets/svg/menu.svg";
 // components
-import NavBarComponent from "../components/elements/NavBarComponent";
-import Main from "../components/features/MainComponent";
+import NavBarComponent from "components/elements/NavBarComponent";
+import Main from "components/features/MainComponent";
 // styles
-import { BurgerMenu, Wrap } from "../components/pages/home/styles";
+import { BurgerMenu, Wrap } from "components/pages/home/styles";
 
 const Home = () => {
   const [isVisibleNavBar, setIsVisibleNavBar] = useState(false);

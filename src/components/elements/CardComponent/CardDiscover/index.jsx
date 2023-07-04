@@ -3,8 +3,8 @@ import React from "react";
 
 // local imports
 // assets
-import arrow from "../../../../assets/svg/arrow-right.svg";
-// components
+import arrow from "assets/svg/arrow-right.svg";
+// styles
 import { ShowButton, WrapImage } from "./styles";
 
 const CardDiscover = () => (

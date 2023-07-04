@@ -4,9 +4,9 @@ import { useDispatch } from "react-redux";
 
 // local imports
 // store
-import { setDefaultData } from "../../../../store/apiSlice";
+import { setDefaultData } from "store/apiSlice";
 // components
-import NavBarTitle from "../NavBarTitle";
+import NavBarTitle from "components/elements/NavBarComponent/NavBarTitle";
 
 const NavBarHome = () => {
   const dispatch = useDispatch();

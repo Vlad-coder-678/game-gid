@@ -3,8 +3,8 @@ import React, { useState } from "react";
 
 // local imports
 // assets
-import arrowPrev from "../../assets/svg/arrow-right.svg";
-// components
+import arrowPrev from "assets/svg/arrow-right.svg";
+// styles
 import {
   ButtonNext,
   ButtonPrev,

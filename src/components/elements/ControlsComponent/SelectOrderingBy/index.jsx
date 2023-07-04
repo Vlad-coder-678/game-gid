@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 // local imports
 // constants
-import { ORDERING } from "../../../../constants/apiFilters";
+import { ORDERING } from "constants/apiFilters";
 // store
-import { setTitle, orderingBy } from "../../../../store/apiSlice";
-// components
+import { setTitle, orderingBy } from "store/apiSlice";
+// styles
 import Wrap from "./styles";
 
 const SelectOrderingBy = () => {

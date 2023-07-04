@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 
 // local imports
 // store
-import { setCurrentPage, setIsScrollDown } from "../../../store/apiSlice";
+import { setCurrentPage, setIsScrollDown } from "store/apiSlice";
 // components
-import CardComponent from "../../elements/CardComponent";
+import CardComponent from "components/elements/CardComponent";
 // styles
 import Container from "./styles";
 

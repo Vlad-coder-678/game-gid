@@ -1,9 +1,10 @@
 // local imports
-import getTodayDate from "../utilities/date-operations";
+import { getFormattedTodayDate } from "utilities/date-operations";
 
 const PAGE_SIZES = [5, 10, 20];
 
 const DEFAULT_CURRENT_PAGE = 1;
+const DEFAULT_START_DATE = new Date(1960, 1, 1);
 
 const ORDERING = {
   popularityTopToBottom: { title: "Popularity(best)", value: "-added" },
@@ -51,8 +52,8 @@ const GENRES = {
 };
 
 const RELEASE_DATE = {
-  ALL_TIME: { title: "All Time", value: `1960-01-01,${getTodayDate()}` },
-  PERIOD_2020_2021: { title: "2020-2021", value: `2020-01-01,${getTodayDate()}` },
+  ALL_TIME: { title: "All Time", value: `1960-01-01,${getFormattedTodayDate()}` },
+  PERIOD_2020_2021: { title: "2020-2021", value: `2020-01-01,${getFormattedTodayDate()}` },
   PERIOD_2010_2019: { title: "2010-2019", value: "2010-01-01,2019-12-31" },
   PERIOD_2000_2009: { title: "2000-2009", value: "2000-01-01,2009-12-31" },
   PERIOD_1990_1999: { title: "1990-1999", value: "1990-01-01,1999-12-31" },
@@ -63,6 +64,7 @@ const RELEASE_DATE = {
 
 export {
   DEFAULT_CURRENT_PAGE,
+  DEFAULT_START_DATE,
   GENRES,
   ORDERING,
   PAGE_SIZES,

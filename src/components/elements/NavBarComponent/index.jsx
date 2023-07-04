@@ -3,7 +3,7 @@ import React from "react";
 
 // local imports
 // assets
-import close from "../../../assets/svg/close.svg";
+import close from "assets/svg/close.svg";
 // components
 import NavBarHome from "./NavBarHome";
 import NavBarRelease from "./NavBarRelease";

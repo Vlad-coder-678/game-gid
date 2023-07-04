@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 // local imports
 // constants
-import { RELEASE_DATE } from "../../../../constants/apiFilters";
+import { RELEASE_DATE } from "constants/apiFilters";
 // store
-import { setTitle, setReleaseDate } from "../../../../store/apiSlice";
-// components
+import { setTitle, setReleaseDate } from "store/apiSlice";
+// styles
 import Wrap from "./styles";
 
 const SelectReleaseDate = () => {

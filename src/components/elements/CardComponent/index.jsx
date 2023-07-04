@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 
 // local imports
 // constants
-import ROUTE from "../../../constants/routes";
+import ROUTE from "constants/routes";
 // utilities
-import { setItemToLocalStorage } from "../../../utilities/local-storage-operation";
+import { setItemToLocalStorage } from "utilities/local-storage-operation";
 // components
 import CardButtons from "./CardButtons";
 import CardDescription from "./CardDescription";

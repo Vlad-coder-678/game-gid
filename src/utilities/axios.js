@@ -2,7 +2,7 @@
 import axios from "axios";
 
 // local imports
-import API from "../constants/api";
+import API from "constants/api";
 
 const axiosInstance = axios.create({
   baseURL: `${API.protocol}://${API.domain}`,

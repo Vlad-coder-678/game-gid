@@ -4,14 +4,14 @@ import { useDispatch } from "react-redux";
 
 // local imports
 // constants
-import BUTTON_SIZES from "../../../../constants/buttonSizes";
+import BUTTON_SIZES from "constants/buttonSizes";
 // data
-import navBarData from "../../../../data/bodyData";
+import navBarData from "data/navbar";
 // store
-import { setDefaultData, setTitle, setReleaseDate } from "../../../../store/apiSlice";
+import { setDefaultData, setTitle, setReleaseDate } from "store/apiSlice";
 // components
-import NavBarTitle from "../NavBarTitle";
-import SquareButton from "../../../common/SquareButton";
+import NavBarTitle from "components/elements/NavBarComponent/NavBarTitle";
+import SquareButton from "components/common/SquareButton";
 // styles
 import { Wrap, WrapItem } from "./styles";
 

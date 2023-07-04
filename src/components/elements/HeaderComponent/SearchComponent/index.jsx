@@ -5,11 +5,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 // local imports
 // constants
-import ROUTE from "../../../../constants/routes";
+import ROUTE from "constants/routes";
 // store
-import { setSearchValue } from "../../../../store/apiSlice";
+import { setSearchValue } from "store/apiSlice";
+// styles
 import { VisualHidden, Wrap } from "./styles";
-// components
 
 const SearchComponent = () => {
   const { isLoading, searchValue } = useSelector((state) => state.api);

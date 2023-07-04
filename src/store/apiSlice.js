@@ -9,7 +9,7 @@ import {
   PLATFORM,
   PLATFORM_NAMES,
   RELEASE_DATE,
-} from "../constants/apiFilters";
+} from "constants/apiFilters";
 
 export const sectionApiSlice = createSlice({
   name: "sectionApi",

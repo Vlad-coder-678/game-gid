@@ -4,21 +4,21 @@ import { Navigate, useLocation } from "react-router-dom";
 
 // local imports
 // assets
-import home from "../assets/svg/home.svg";
-import pacman from "../assets/svg/pacman.svg";
+import home from "assets/svg/home.svg";
+import pacman from "assets/svg/browse/pacman.svg";
 // constants
-import ROUTE from "../constants/routes";
+import ROUTE from "constants/routes";
 // components
-import DetailsSlider from "../components/Slider";
-import CardPlatforms from "../components/elements/CardComponent/CardPlatforms";
-import ButtonSquare from "../components/common/SquareButton";
-
+import DetailsSlider from "components/Slider";
+import CardPlatforms from "components/elements/CardComponent/CardPlatforms";
+import ButtonSquare from "components/common/SquareButton";
+// styles
 import {
   Buttons,
   Desc,
   DetailsTitle,
   Wrap,
-} from "../components/pages/details/styles";
+} from "components/pages/details/styles";
 
 const Details = () => {
   const [cardData, setCardData] = useState({});

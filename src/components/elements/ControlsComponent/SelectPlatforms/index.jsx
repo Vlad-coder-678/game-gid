@@ -4,10 +4,10 @@ import { useSelector, useDispatch } from "react-redux";
 
 // local imports
 // constants
-import { PLATFORM } from "../../../../constants/apiFilters";
+import { PLATFORM } from "constants/apiFilters";
 // store
-import { setTitle, setPlatforms } from "../../../../store/apiSlice";
-// components
+import { setTitle, setPlatforms } from "store/apiSlice";
+// styles
 import { Option, Wrap } from "./styles";
 
 const SelectPlatforms = () => {

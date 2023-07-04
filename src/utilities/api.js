@@ -1,8 +1,8 @@
 // local imports
 // store
-import { appendCards, setCards, setIsLoading } from "../store/apiSlice";
+import { appendCards, setCards, setIsLoading } from "store/apiSlice";
 // utilities
-import fetchResults from "./axios";
+import fetchResults from "utilities/axios";
 
 const fetchGamesResults = ({ page, pageSize, search, platforms, genres, dates, ordering }) => async (dispatch) => {
   dispatch(setIsLoading(true));

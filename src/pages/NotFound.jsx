@@ -3,9 +3,9 @@ import React from "react";
 
 // local imports
 // data
-import notFoundData from "../data/notFoundData";
-// components
-import Wrap from "../components/pages/notFound/styles";
+import notFoundData from "data/notFoundData";
+// styles
+import Wrap from "components/pages/notFound/styles";
 
 const NotFound = () => (
   <Wrap>

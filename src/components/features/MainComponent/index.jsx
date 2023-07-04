@@ -2,10 +2,11 @@
 import React from "react";
 
 // local imports
-import Title from "./Title";
-import Controls from "../../elements/ControlsComponent";
-import CardsComponent from "../CardsComponent";
-
+// components
+import Title from "components/features/MainComponent/Title";
+import Controls from "components/elements/ControlsComponent";
+import CardsComponent from "components/features/CardsComponent";
+// styles
 import Wrap from "./styles";
 
 const Main = () => (

@@ -3,14 +3,14 @@ import React from "react";
 
 // local imports
 // assets
-import ellipsis from "../../../../assets/svg/ellipsis.svg";
-import plus from "../../../../assets/svg/plus.svg";
-import present from "../../../../assets/svg/present.svg";
+import ellipsis from "assets/svg/ellipsis.svg";
+import plus from "assets/svg/plus.svg";
+import present from "assets/svg/present.svg";
 // constants
-import BUTTON_SIZES from "../../../../constants/buttonSizes";
+import BUTTON_SIZES from "constants/buttonSizes";
 // components
-import ButtonSquare from "../../../common/SquareButton";
-
+import ButtonSquare from "components/common/SquareButton";
+// styles
 import Wrap from "./styles";
 
 const CardButtons = ({ added }) => (

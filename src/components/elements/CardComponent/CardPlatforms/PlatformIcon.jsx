@@ -2,13 +2,13 @@
 import React from "react";
 
 // local imports
-import linux from "../../../../assets/svg/linux.svg";
-import mac from "../../../../assets/svg/mac.svg";
-import nintendo from "../../../../assets/svg/nintendo.svg";
-import pc from "../../../../assets/svg/pc.svg";
-import playstation from "../../../../assets/svg/playstation.svg";
-import web from "../../../../assets/svg/web.svg";
-import xbox from "../../../../assets/svg/xbox.svg";
+import linux from "assets/svg/platforms/linux.svg";
+import mac from "assets/svg/platforms/mac.svg";
+import nintendo from "assets/svg/platforms/nintendo.svg";
+import pc from "assets/svg/platforms/pc.svg";
+import playstation from "assets/svg/platforms/playstation.svg";
+import web from "assets/svg/platforms/web.svg";
+import xbox from "assets/svg/platforms/xbox.svg";
 
 const PlatformIcon = ({ slug }) => {
   const choiceSrc = (source) => {

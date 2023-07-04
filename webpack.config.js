@@ -7,30 +7,8 @@ const isProd = !isDev;
 
 const filename = (ext) => (isDev ? `[name].${ext}` : `[name].[contenthash].${ext}`);
 
-const optimization = () => {
-  const configObj = {
-    splitChunks: {
-      chunks: "all",
-    },
-  };
-
-  if (isProd) configObj.minimizer = [new TerserWebpackPlugin()];
-
-  return configObj;
-};
-
 module.exports = {
   context: path.resolve(__dirname, "src"),
-  mode: "development",
-  entry: ["@babel/polyfill", "./index.jsx"],
-  output: {
-    path: path.resolve(__dirname, "build"),
-    filename: `./${filename("js")}`,
-    publicPath: "/",
-  },
-  resolve: {
-    extensions: [".js", ".jsx"],
-  },
   devServer: {
     historyApiFallback: true,
     static: path.resolve(__dirname, "build"),
@@ -39,9 +17,22 @@ module.exports = {
     hot: true,
     port: 3000,
   },
-  optimization: optimization(),
-  plugins: webpackPlugins(),
   devtool: isProd ? false : "source-map",
+  entry: ["@babel/polyfill", "./index.jsx"],
+  mode: "development",
+  output: {
+    path: path.resolve(__dirname, "build"),
+    filename: `./${filename("js")}`,
+    publicPath: "/",
+  },
+  optimization: {
+    splitChunks: { chunks: "all" },
+    ...(isProd ? { minimizer: [new TerserWebpackPlugin()] } : {}),
+  },
+  plugins: webpackPlugins(),
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
   module: {
     rules: [
       {
